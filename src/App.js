@@ -7,6 +7,7 @@ export default function App() {
   return (
     <div className="App">
       <nav>
+        <NavLink to="/">Home</NavLink>
         <NavLink to="/pokemon/test">Search</NavLink>
       </nav>
       <Switch>
