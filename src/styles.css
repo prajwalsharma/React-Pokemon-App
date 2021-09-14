@@ -2,6 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100vh;
 }
 
 * {
@@ -31,4 +32,34 @@ nav a {
 .App {
   font-family: sans-serif;
   text-align: center;
+}
+
+.pokemonListItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid coral;
+  width: 500px;
+  margin: 5px 0 5px 0;
+  padding: 15px;
+  border-radius: 7px;
+}
+
+.pokemonListContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemonListItem a {
+  text-decoration: none;
+  background-color: coral;
+  color: white;
+  padding: 7px;
+  border-radius: 7px;
+}
+
+.capitalize:first-letter {
+  text-transform: capitalize;
 }

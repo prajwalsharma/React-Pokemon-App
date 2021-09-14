@@ -1,5 +1,9 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
 import { PokemonListReducer } from "./PokemonList/pokemonListReducers";
 import thunk from "redux-thunk";
 
-export const store = createStore(PokemonListReducer, applyMiddleware(thunk));
+const rootReducer = combineReducers({
+  PokemonList: PokemonListReducer
+});
+
+export const store = createStore(rootReducer, applyMiddleware(thunk));

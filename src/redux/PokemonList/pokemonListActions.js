@@ -37,7 +37,7 @@ export const fetchPokemonDataFromAPI = () => {
         dispatch(pokemonDataFetchSuccess(response.data.results));
       })
       .catch((error) => {
-        dispatch(pokemonDataFetchFailure(error));
+        dispatch(pokemonDataFetchFailure(error.message));
       });
   };
 };
