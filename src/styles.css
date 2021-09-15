@@ -20,13 +20,17 @@ nav {
   justify-content: space-between;
   background: coral;
   width: 100%;
-  height: 40px;
+  height: 60px;
 }
 
 nav a {
-  margin: 0 25px 0 25px;
   color: white;
   text-decoration: none;
+  margin: 0 15px 0 15px;
+}
+
+.searchBoxContainer button {
+  margin: 0 20px 0 20px;
 }
 
 .App {
@@ -36,20 +40,24 @@ nav a {
 
 .pokemonListItem {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  border: 3px solid coral;
-  width: 500px;
-  margin: 5px 0 5px 0;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
   padding: 15px;
-  border-radius: 7px;
+  border-radius: 5px;
+  margin: 15px;
+  height: 170px;
+  width: 170px;
 }
 
 .pokemonListContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  padding: 0 25% 0 25%;
 }
 
 .pokemonListItem a {
@@ -62,4 +70,10 @@ nav a {
 
 .capitalize:first-letter {
   text-transform: capitalize;
+}
+
+.searchBoxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

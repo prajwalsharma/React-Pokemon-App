@@ -7,7 +7,7 @@ const Pokemon = (props) => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchPokemonFromAPI(pokemonName));
-  }, [pokemonName, dispatch]);
+  }, [pokemonName]);
 
   const state = useSelector((state) => state.Pokemon);
 
@@ -26,8 +26,9 @@ const Pokemon = (props) => {
         <span> {state.pokemon.name}</span>
       </h1>
       <img
-        alt={state.pokemon.name}
         src={state.pokemon.sprites.other.dream_world.front_default}
+        height="200px"
+        width="200px"
       />
     </div>
   );

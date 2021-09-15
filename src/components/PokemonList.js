@@ -28,7 +28,17 @@ class PokemonList extends Component {
         <div className="pokemonListContainer">
           {pokemonList.map((pokemon) => (
             <div className="pokemonListItem">
-              <p className="capitalize">{pokemon.name}</p>
+              <img
+                alt={pokemon.name}
+                height="70px"
+                width="70px"
+                src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${
+                  pokemon.url.split("/")[6]
+                }.svg`}
+              />
+              <p style={{ margin: "10px 0 10px 0" }} className="capitalize">
+                {pokemon.name}
+              </p>
               <Link to={`/pokemon/${pokemon.name}`}>View</Link>
             </div>
           ))}

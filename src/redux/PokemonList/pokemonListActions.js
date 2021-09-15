@@ -31,9 +31,8 @@ export const fetchPokemonDataFromAPI = () => {
   return (dispatch) => {
     dispatch(pokemonDataFetch());
     axios
-      .get("https://pokeapi.co/api/v2/pokemon")
+      .get("https://pokeapi.co/api/v2/pokemon?limit=6&offset=0")
       .then((response) => {
-        console.log(response.data);
         dispatch(pokemonDataFetchSuccess(response.data.results));
       })
       .catch((error) => {

@@ -3,6 +3,7 @@ import "./styles.css";
 import { Route, Switch, NavLink, Redirect } from "react-router-dom";
 import Pokemon from "./components/Pokemon";
 import { Component } from "react";
+import { Button, TextField } from "@material-ui/core";
 
 export default class App extends Component {
   constructor(props) {
@@ -24,16 +25,21 @@ export default class App extends Component {
       <div className="App">
         <nav>
           <NavLink to="/">Home</NavLink>
-          <div>
-            <input
+          <div className="searchBoxContainer">
+            <TextField
+              size="small"
+              label="Search Pokemon here..."
+              variant="outlined"
               value={this.state.searchText}
               onChange={(event) => this.searchInputChange(event.target.value)}
             />
-            <NavLink
-              to={`/pokemon/${this.state.searchText.toLocaleLowerCase()}`}
-            >
-              Search
-            </NavLink>
+            <Button variant="outlined" size="small">
+              <NavLink
+                to={`/pokemon/${this.state.searchText.toLocaleLowerCase()}`}
+              >
+                Search
+              </NavLink>
+            </Button>
           </div>
         </nav>
         <Switch>
