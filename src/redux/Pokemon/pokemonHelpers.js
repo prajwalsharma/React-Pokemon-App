@@ -12,7 +12,14 @@ export const fetchPokemonFromAPI = (pokemonName) => {
     axios
       .get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
       .then((response) => {
-        dispatch(fetchPokemonSuccess(response.data));
+        const pokemonObject = response.data;
+        const data = {
+          name: pokemonObject.name,
+          url: pokemonObject.sprites.other.dream_world.front_default,
+          id: pokemonObject.id,
+          type: pokemonObject.types[0].type.name
+        };
+        dispatch(fetchPokemonSuccess(data));
       })
       .catch((error) => {
         dispatch(fetchPokemonFailure(error.message));

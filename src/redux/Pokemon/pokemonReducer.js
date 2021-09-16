@@ -6,7 +6,7 @@ import {
 
 const initialState = {
   loading: false,
-  pokemon: [],
+  pokemon: {},
   error: ""
 };
 
@@ -15,9 +15,7 @@ export const PokemonReducer = (state = initialState, action) => {
     case FETCH_POKEMON:
       return {
         ...state,
-        loading: true,
-        error: "",
-        pokemon: []
+        loading: true
       };
     case FETCH_POKEMON_SUCCESS:
       return {
@@ -30,8 +28,7 @@ export const PokemonReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        error: action.payload,
-        pokemon: []
+        error: action.payload
       };
     default:
       return state;

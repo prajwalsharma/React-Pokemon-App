@@ -3,13 +3,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
 const Pokemon = (props) => {
-  const pokemonName = props.match.params.pokemon;
+  const pokemonNameParameter = props.match.params.pokemon;
+  const state = useSelector((state) => state.Pokemon);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchPokemonFromAPI(pokemonName));
-  }, [pokemonName]);
-
-  const state = useSelector((state) => state.Pokemon);
+    dispatch(fetchPokemonFromAPI(pokemonNameParameter));
+  }, [pokemonNameParameter]);
 
   if (state.loading) {
     return <h1>Loading...</h1>;
@@ -20,16 +19,29 @@ const Pokemon = (props) => {
   }
 
   return (
-    <div>
-      <h1>
-        Pokemon Name:
-        <span> {state.pokemon.name}</span>
-      </h1>
-      <img
-        src={state.pokemon.sprites.other.dream_world.front_default}
-        height="200px"
-        width="200px"
-      />
+    <div className="pokemonContainer">
+      {state.pokemon && (
+        <div className={`pokemonCard ${state.pokemon.type}`}>
+          <h1>#{state.pokemon.id}</h1>
+          {state.pokemon.url && (
+            <img
+              alt={state.pokemon.name}
+              src={state.pokemon.url}
+              height="150px"
+              width="300px"
+            />
+          )}
+          <h2>
+            {state.pokemon.name[0].toUpperCase() +
+              state.pokemon.name.slice(1).toLowerCase()}
+          </h2>
+          <h3>
+            Type:{" "}
+            {state.pokemon.type[0].toUpperCase() +
+              state.pokemon.type.slice(1).toLowerCase()}
+          </h3>
+        </div>
+      )}
     </div>
   );
 };

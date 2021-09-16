@@ -77,3 +77,41 @@ nav a {
   align-items: center;
   justify-content: space-between;
 }
+
+.pokemonContainer {
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.pokemonCard {
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  border: 1px solid #eee;
+  padding: 15px;
+}
+
+.fire {
+  background-color: hsl(9deg 78% 93%);
+}
+
+.grass {
+  background-color: hsl(118deg 67% 93%);
+}
+
+.water {
+  background-color: hsl(205deg 23% 80%);
+}
+
+.bug {
+  background-color: hsl(36deg 42% 69%);
+}
+
+.electric {
+  background-color: #fffea2;
+}
+
+.poison {
+  background-color: #d49de8;
+}
