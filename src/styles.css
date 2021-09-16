@@ -60,6 +60,17 @@ nav a {
   padding: 0 25% 0 25%;
 }
 
+@media only screen and (max-width: 700px) {
+  .pokemonListContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5% 0 5%;
+  }
+}
+
 .pokemonListItem a {
   text-decoration: none;
   background-color: coral;
@@ -114,4 +125,11 @@ nav a {
 
 .poison {
   background-color: #d49de8;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
 }

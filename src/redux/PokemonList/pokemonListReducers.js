@@ -7,7 +7,9 @@ import {
 const initialState = {
   loading: false,
   pokemons: [],
-  error: ""
+  error: "",
+  limit: 6,
+  offset: 0
 };
 
 export const PokemonListReducer = (state = initialState, action) => {
@@ -21,7 +23,9 @@ export const PokemonListReducer = (state = initialState, action) => {
       return {
         ...state,
         loading: false,
-        pokemons: action.payload
+        pokemons: action.payload,
+        limit: action.pageLimit,
+        offset: action.pageOffset
       };
     case POKEMON_DATA_FETCH_FAILURE:
       return {

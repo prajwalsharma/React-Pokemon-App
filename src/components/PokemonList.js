@@ -1,16 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { fetchPokemonDataFromAPI } from "../redux/PokemonList/pokemonListActions";
+import {
+  fetchPokemonDataFromAPI,
+  fetchMorePokemonDataFromAPI
+} from "../redux/PokemonList/pokemonListActions";
 import { Link } from "react-router-dom";
+import { Button } from "@material-ui/core";
 
 class PokemonList extends Component {
   componentDidMount() {
     this.props.fetchPokemons();
   }
 
+  fetchMorePokemons = () => {
+    this.props.fetchMorePokemons();
+  };
+
   render() {
     const { pokemonList, isLoading, errorMessage } = this.props;
-
+    console.log(pokemonList);
     // Error Handling
     if (errorMessage !== "") {
       return <p>{errorMessage}</p>;
@@ -23,11 +31,10 @@ class PokemonList extends Component {
 
     // UI Handling
     return (
-      <div>
-        <h1>Pokemon List</h1>
+      <div className="flex-container">
         <div className="pokemonListContainer">
           {pokemonList.map((pokemon) => (
-            <div className="pokemonListItem">
+            <div key={pokemon.url.split("/")[6]} className="pokemonListItem">
               <img
                 alt={pokemon.name}
                 height="70px"
@@ -43,6 +50,13 @@ class PokemonList extends Component {
             </div>
           ))}
         </div>
+        <Button
+          onClick={this.fetchMorePokemons}
+          variant="contained"
+          color="primary"
+        >
+          Load next...
+        </Button>
       </div>
     );
   }
@@ -58,7 +72,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchPokemons: () => dispatch(fetchPokemonDataFromAPI())
+    fetchPokemons: () => dispatch(fetchPokemonDataFromAPI()),
+    fetchMorePokemons: () => dispatch(fetchMorePokemonDataFromAPI())
   };
 };
 

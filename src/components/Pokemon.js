@@ -31,15 +31,19 @@ const Pokemon = (props) => {
               width="300px"
             />
           )}
-          <h2>
-            {state.pokemon.name[0].toUpperCase() +
-              state.pokemon.name.slice(1).toLowerCase()}
-          </h2>
-          <h3>
-            Type:{" "}
-            {state.pokemon.type[0].toUpperCase() +
-              state.pokemon.type.slice(1).toLowerCase()}
-          </h3>
+          {state.pokemon.name && (
+            <h2>
+              {state.pokemon.name[0].toUpperCase() +
+                state.pokemon.name.slice(1).toLowerCase()}
+            </h2>
+          )}
+          {state.pokemon.type && (
+            <h3>
+              Type:{" "}
+              {state.pokemon.type[0].toUpperCase() +
+                state.pokemon.type.slice(1).toLowerCase()}
+            </h3>
+          )}
         </div>
       )}
     </div>
